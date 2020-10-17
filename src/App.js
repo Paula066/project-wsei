@@ -1,15 +1,13 @@
-import React, {Component} from 'react';
-import Header from './components/Headers/headers';
-import RegistractionForm from './components/RegistractionForm/registractionform'
+import React from 'react';
+import './App.scss';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
         <div>
-          <Header/>
-          <RegistractionForm/>
+          <h1></h1>
         </div>
-    )
+    );
   }
 }
 
