@@ -9,8 +9,7 @@ class Header extends Component {
     }
 
     burgerHandler = () => {
-        console.log("lal");
-        console.log(this.state.burgerOpen)
+
         this.setState({
             burgerOpen: !this.state.burgerOpen
         });
@@ -23,7 +22,6 @@ class Header extends Component {
             <div className="header">
                 <Hamburger onClick={this.burgerHandler} />
                 {burgerOpen && <Menu />}
-                {/*<Menu />*/}
             </div>
         )
     }
