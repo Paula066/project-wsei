@@ -16,7 +16,6 @@ class Header extends Component {
     }
 
     render() {
-
         const burgerOpen = this.state.burgerOpen;
         return (
             <div className="header">
@@ -68,6 +67,22 @@ class Menu extends Component {
     }
 }
 
+class LoginMenu extends Component {
+    render() {
+        return (
+            <div className="mainLogin">
+                <form action="">
+                    <label>Sign up</label>
+                    <input placeholder="username"/>
+                    <input placeholder="e-mail address"/>
+                    <input placeholder="password"/>
+                    <input placeholder="confirm password"/>
+                </form>
+            </div>
+        )
+    }
+}
+
 class Box extends Component {
     render() {
         return (
@@ -93,8 +108,9 @@ export default class App extends Component {
     render() {
         return (
             <div className="main-box">
-                <Header />
-                <Box />
+                {/*<Header />*/}
+                {/*<Box />*/}
+                <LoginMenu />
             </div>
         );
     }

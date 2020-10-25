@@ -82,6 +82,34 @@ body {
   }
 }
 
+.mainLogin {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: green;
+
+
+  label {
+    display: block;
+    padding: 10px 30px;
+    font-size: 20px;
+  }
+
+  input {
+    padding: 10px 30px;
+    background: white;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+  }
+}
+
 .box {
 
   .flex {
