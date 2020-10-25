@@ -22,7 +22,6 @@ body {
   position: relative;
 
   .popup {
-    display: none;
     flex-direction: column;
     background: green;
     position: absolute;
@@ -30,9 +29,7 @@ body {
     top: 60px;
     text-align: center;
 
-    &.open {
-      display: flex;
-    }
+
 
     ul {
       li {
