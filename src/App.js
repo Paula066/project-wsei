@@ -77,6 +77,7 @@ class LoginMenu extends Component {
                     <input placeholder="e-mail address"/>
                     <input placeholder="password"/>
                     <input placeholder="confirm password"/>
+                    <button>Sign up</button>
                 </form>
             </div>
         )
