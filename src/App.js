@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './App.scss';
+import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom'
 
 
 class Header extends Component {
@@ -41,28 +42,48 @@ class Hamburger extends Component {
     }
 }
 
+class ErrorPage extends Component {
+    render() {
+        return (
+            <h1>Strona nie istnieje</h1>
+        )
+    }
+}
+
 class Menu extends Component {
     render() {
         return (
-            <div className="popup">
-                <ul>
-                    <li>
-                        <a href="/#">Zaloguj sie</a>
-                    </li>
-                    <li>
-                        <a href="/#">Zarejestruj sie</a>
-                    </li>
-                    <li>
-                        <a href="/#">Twoje rezerwacje</a>
-                    </li>
-                    <li>
-                        <a href="/#">Kontakt</a>
-                    </li>
-                    <li>
-                        <a href="/#">O nas</a>
-                    </li>
-                </ul>
-            </div>
+            <Router>
+                <section>
+                    <Switch>
+                        <Route path="/zaloguj" exact component={LoginMenu}/>
+                        <Route path="/zarejestrujsie" exact component={RejestrationMenu}/>
+                        {/*<Route path="/twojerezerwacje" exact component={LoginMenu}/>*/}
+                        {/*<Route path="/kontakt" exact component={LoginMenu}/>*/}
+                        <Route component={ErrorPage}/>
+                    </Switch>
+                </section>
+                <div className="popup">
+                    <ul>
+                        <li>
+                            <NavLink to="/zaloguj">Zaloguj sie</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/zarejestrujsie">Zarejestruj sie</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/twojerezerwacje">Twoje rezerwacje</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/kontakt">Kontakt</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/onas">O nas</NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </Router>
+
         )
     }
 }
@@ -72,12 +93,32 @@ class LoginMenu extends Component {
         return (
             <div className="mainLogin">
                 <form action="">
+                    <label>Sign in</label>
+                    <div className="input-box">
+                        <input placeholder="username"/>
+                        <input placeholder="passsword"/>
+                        <button>Login</button>
+                        <p>Not registered? <span>Create an account</span> </p>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+}
+
+class RejestrationMenu extends Component {
+    render() {
+        return (
+            <div className="mainLogin">
+                <form action="">
                     <label>Sign up</label>
-                    <input placeholder="username"/>
-                    <input placeholder="e-mail address"/>
-                    <input placeholder="password"/>
-                    <input placeholder="confirm password"/>
-                    <button>Sign up</button>
+                    <div className="input-box">
+                        <input placeholder="username"/>
+                        <input placeholder="e-mail address"/>
+                        <input placeholder="password"/>
+                        <input placeholder="confirm password"/>
+                        <button>Sign up</button>
+                    </div>
                 </form>
             </div>
         )
@@ -109,9 +150,8 @@ export default class App extends Component {
     render() {
         return (
             <div className="main-box">
-                {/*<Header />*/}
-                {/*<Box />*/}
-                <LoginMenu />
+                <Header />
+                <Box />
             </div>
         );
     }
