@@ -7,9 +7,9 @@ export default class Hamburger extends PureComponent {
         const onClick = this.props.onClick;
         return (
             <div className="hamburger" onClick={onClick}>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span />
+                <span />
+                <span />
             </div>
         )
     }

@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import { Hamburger, Menu } from "./";
 
 export default class Header extends PureComponent {
 

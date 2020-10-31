@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './App.scss';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import { Header, LoginMenu, ErrorPage, Registration, FindRestaurant, Box, Hamburger, Menu  } from './components';
+import { Header, LoginMenu, ErrorPage, Registration, FindRestaurant, Box, Hamburger, Menu, MainPage  } from './components';
 import FindRestauration from "./components/FindRestauration";
 
 
@@ -30,6 +30,7 @@ export default class App extends Component {
                     <Header burgerOpen={burgerOpen} onClick={this.burgerHandler}>
                         <Hamburger onClick={this.burgerHandler} />
                         {burgerOpen && <Menu onClick={this.burgerTurnOff} />}
+                        <MainPage />
                     </Header>
                     <Switch>
                         <Route path="/zaloguj" component={LoginMenu}/>
