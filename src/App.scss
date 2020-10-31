@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet');
+
 * {
   margin: 0;
   padding: 0;
@@ -8,82 +9,82 @@
 
 
 
-    .restaurants {
-      display: inline-flex;
-      flex-direction: column;
-      background: white;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
+  .restaurants {
+    display: inline-flex;
+    flex-direction: column;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+
+    &__localization {
+      font-size: 35px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    &__name {
+      border-top: 1px solid;
+      padding-top: 40px;
+      font-size: 25px;
+      margin-bottom: 40px;
+    }
+
+    &__free-places {
+      color: gray;
+      margin-bottom: 30px;
+    }
+
+    &__number {
+      background: green;
+      color: red;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 10px 30px;
       text-align: center;
+    }
 
-      &__localization {
-        font-size: 35px;
+    &__slider {
+      display: flex;
+    }
+
+    &__restaurant {
+      border: 1px solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 190px;
+      padding: 30px 10px;
+      margin: 30px 20px;
+
+      img {
+        padding: 50px 0;
+      }
+
+    }
+
+    &__search {
+      display: flex;
+      p {
+        display: flex;
+        margin-right: 10px;
+        padding: 10px 20px;
+        border: 2px solid green;
         font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      &__name {
-        border-top: 1px solid;
-        padding-top: 40px;
-        font-size: 25px;
-        margin-bottom: 40px;
-      }
-
-      &__free-places {
-        color: gray;
-        margin-bottom: 30px;
-      }
-
-      &__number {
-        background: green;
-        color: red;
-        font-weight: bold;
-        font-size: 20px;
-        padding: 10px 30px;
-        text-align: center;
-      }
-
-      &__slider {
-        display: flex;
-      }
-
-      &__restaurant {
-        border: 1px solid;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 190px;
-        padding: 30px 10px;
-        margin: 30px 20px;
-
-        img {
-          padding: 50px 0;
-        }
-
-      }
-
-      &__search {
-        display: flex;
-        p {
-          display: flex;
-          margin-right: 10px;
-          padding: 10px 20px;
-          border: 2px solid green;
-          font-weight: bold;
-          border-radius: 10px;
-          align-items: center;
-          span {
-            border: 1px solid gray;
-            margin-left: 10px;
-            padding: 5px 10px;
-            color: gray;
-            font-size: 15px;
-            border-radius: 5px;
-          }
+        border-radius: 10px;
+        align-items: center;
+        span {
+          border: 1px solid gray;
+          margin-left: 10px;
+          padding: 5px 10px;
+          color: gray;
+          font-size: 15px;
+          border-radius: 5px;
         }
       }
     }
+  }
 
 
 
@@ -109,9 +110,12 @@ body {
 }
 
 .header {
-  height: 60px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 20px 40px;
   background: green;
-  position: relative;
+  align-items: center;
 
   .popup {
     flex-direction: column;
@@ -149,9 +153,6 @@ body {
 
   .hamburger {
     display: block;
-    position: absolute;
-    top: 20px;
-    right: 50px;
     cursor: pointer;
     z-index: 1;
 

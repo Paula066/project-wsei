@@ -6,3 +6,4 @@ export { default as ErrorPage } from './ErrorPage';
 export { default as Registration } from './Registration';
 export { default as FindRestaurant } from './FindRestauration';
 export { default as Box } from './Box';
+export { default as MainPage } from './MainPage';
