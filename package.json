@@ -18,9 +18,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+<<<<<<< HEAD
   },
   "eslintConfig": {
     "extends": "react-app"
+=======
+>>>>>>> 52f291d5b71dc5a0a916f52eb12ff8388e73270a
   },
   "browserslist": {
     "production": [
