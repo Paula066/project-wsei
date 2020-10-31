@@ -1,17 +1,36 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import axios from 'axios';
 
 export default class Registration extends Component {
     render() {
+        let registerUsername = ""
+        let registerEmail = ""
+        let registerPassword = ""
+        let registerPassword2 = ""
+
+        const register = () => {
+
+            axios({
+                method: 'POST',
+                data: {
+                    username: registerUsername,
+                    email: registerEmail,
+                    password: registerPassword
+                },
+                withCredentials: true,
+                url: "http://localhost:5000/zarejestrujsie"
+            }).then((res) => console.log(res))
+        }
         return (
             <div className="mainLogin">
                 <form action="">
                     <label>Sign up</label>
                     <div className="input-box">
-                        <input placeholder="username"/>
-                        <input placeholder="e-mail address"/>
-                        <input placeholder="password"/>
-                        <input placeholder="confirm password"/>
-                        <button>Sign up</button>
+                        <input placeholder="username" onChange={e => registerUsername = e.target.value} />
+                        <input placeholder="e-mail address" onChange={e => registerEmail = e.target.value} />
+                        <input placeholder="password" onChange={e => registerPassword = e.target.value} />
+                        <input placeholder="confirm password" onChange={e => registerPassword2 = e.target.value} />
+                        <button type="button" onClick={register}>Sign up</button>
                     </div>
                 </form>
             </div>
