@@ -26,7 +26,7 @@ export default class App extends Component {
 
         return (
             <Router>
-                <div className="main-box">
+                <div className="mainBox">
                     <Header burgerOpen={burgerOpen} onClick={this.burgerHandler}>
                         <Hamburger onClick={this.burgerHandler} />
                         {burgerOpen && <Menu onClick={this.burgerTurnOff} />}
