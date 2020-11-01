@@ -6,6 +6,7 @@ export default class Menu extends PureComponent {
 
     render() {
         const { onClick } = this.props;
+        console.log(onClick)
 
         return (
             <div className="popup">
