@@ -9,6 +9,8 @@ export default class Registration extends Component {
         let registerPassword2 = ""
 
         const register = () => {
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            const url = "http://localhost:5000/zarejestrujsie";
 
             axios({
                 method: 'POST',
@@ -18,7 +20,7 @@ export default class Registration extends Component {
                     password: registerPassword
                 },
                 withCredentials: true,
-                url: "http://localhost:5000/zarejestrujsie"
+                url: `Access-Control-Allow-Origin: http://localhost:5000/zarejestrujsie`
             }).then((res) => console.log(res))
         }
         return (

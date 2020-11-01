@@ -4,7 +4,7 @@ export default class Hamburger extends PureComponent {
 
     render() {
         return (
-            <div className="">
+            <div className="main-page">
               <p>Main Page</p>
             </div>
         )
