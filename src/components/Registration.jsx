@@ -14,13 +14,19 @@ export default class Registration extends Component {
 
             axios({
                 method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    "Access-Control-Allow-Origin": "*",
+
+                },
                 data: {
                     username: registerUsername,
                     email: registerEmail,
                     password: registerPassword
                 },
                 withCredentials: true,
-                url: `Access-Control-Allow-Origin: http://localhost:5000/zarejestrujsie`
+                url: `http://localhost:5000/zarejestrujsie`
             }).then((res) => console.log(res))
         }
         return (
