@@ -24,7 +24,7 @@ export default class Registration extends Component {
             }).then((res) => console.log(res))
         }
         return (
-            <div className="mainLogin">
+            <div className="mainLogin test">
                 <form action="">
                     <label>Sign up</label>
                     <div className="input-box">
