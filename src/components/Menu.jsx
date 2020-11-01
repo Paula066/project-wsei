@@ -6,10 +6,9 @@ export default class Menu extends PureComponent {
 
     render() {
         const { onClick } = this.props;
-        console.log(onClick)
 
         return (
-            <div className="popup">
+            <div className="header__menu">
                 <ul>
                     {this.links.map(item => (<li key={item} onClick={onClick}>
                         <Link to={`/${item}`}>{item}</Link>

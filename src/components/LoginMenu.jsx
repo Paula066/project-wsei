@@ -23,7 +23,7 @@ export default class LoginMenu extends Component {
             <div className="mainLogin">
                 <form action="">
                     <label>Sign in</label>
-                    <div className="input-box">
+                    <div className="mainLogin__input-box">
                         <input placeholder="username" />
                         <input placeholder="passsword" />
                         <button>Login</button>

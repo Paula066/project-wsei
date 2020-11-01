@@ -3,7 +3,7 @@ import React, {Component} from "react";
 export default class FindRestaurant extends Component {
     render() {
         return(
-            <div className="center-box">
+            <div className="findRestaurants">
                 <div className="restaurants">
                     <div className="restaurants__localization">Kraków</div>
                     <div className="restaurants__search">

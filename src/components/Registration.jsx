@@ -29,10 +29,10 @@ export default class Registration extends Component {
             }).then((res) => console.log(res))
         }
         return (
-            <div className="mainLogin test">
+            <div className="mainLogin">
                 <form action="">
                     <label>Sign up</label>
-                    <div className="input-box">
+                    <div className="mainLogin__input-box">
                         <input placeholder="username" onChange={e => registerUsername = e.target.value} />
                         <input placeholder="e-mail address" onChange={e => registerEmail = e.target.value} />
                         <input placeholder="password" onChange={e => registerPassword = e.target.value} />
