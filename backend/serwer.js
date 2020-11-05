@@ -8,9 +8,7 @@ const bcrypt = require("bcryptjs")
 const session = require("express-session")
 const bodyParser = require("body-parser")
 const User = require('./models/userModel')
-const {
-    use
-} = require("passport")
+const {use} = require("passport")
 
 const port = 5000
 
@@ -31,8 +29,7 @@ app.use(session({
 app.use(cookieParser("secretcode"))
 app.use(passport.initialize())
 app.use(passport.session())
-// require('./models/passportConfig')(passport)
-
+require('./models/passportConfig')(passport)
 
 
 // Routes

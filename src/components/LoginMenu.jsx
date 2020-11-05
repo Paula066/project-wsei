@@ -1,18 +1,18 @@
 import React, { Component } from "react";
+const axios = require("axios")
 
 export default class LoginMenu extends Component {
     render() {
-        let registerUsername = ""
-        let registerPassword = ""
+        let LoginUsername = ""
+        let LoginPassword = ""
 
-        const register = () => {
+        const login = () => {
 
             axios({
                 method: 'POST',
                 data: {
-                    username: registerUsername,
-                    email: registerEmail,
-                    password: registerPassword
+                    username: LoginUsername,
+                    password: LoginPassword
                 },
                 withCredentials: true,
                 url: "http://localhost:5000/zaloguj"
@@ -23,10 +23,10 @@ export default class LoginMenu extends Component {
             <div className="mainLogin">
                 <form action="">
                     <label>Sign in</label>
-                    <div className="mainLogin__input-box">
-                        <input placeholder="username" />
-                        <input placeholder="passsword" />
-                        <button>Login</button>
+                    <div className="input-box">
+                        <input placeholder="username" onChange={e => LoginUsername = e.target.value}/>
+                        <input placeholder="passsword" onChange={e => LoginPassword = e.target.value}/>
+                        <button type="button" onClick={login}>Login</button>
                         <p>Not registered? <span>Create an account</span> </p>
                     </div>
                 </form>
