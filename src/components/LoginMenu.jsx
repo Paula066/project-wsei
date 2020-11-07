@@ -23,7 +23,7 @@ export default class LoginMenu extends Component {
             <div className="mainLogin">
                 <form action="">
                     <label>Sign in</label>
-                    <div className="input-box">
+                    <div className="mainLogin__input-box">
                         <input placeholder="username" onChange={e => LoginUsername = e.target.value}/>
                         <input placeholder="passsword" onChange={e => LoginPassword = e.target.value}/>
                         <button type="button" onClick={login}>Login</button>
