@@ -54,7 +54,7 @@ app.post("/zarejestrujsie", (req, res) => {
         username: req.body.username
     }, async (err, doc) => {
         if (err) throw err
-        if (doc) throw res.send("User Already Wxists")
+        if (doc) throw res.send("User Already Exists")
         if (!doc) {
             const hashPassword = await bcrypt.hash(req.body.password, 10)
             console.log(hashPassword)
