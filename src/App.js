@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import './App.scss';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Router, Link, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 import { Header, LoginMenu, ErrorPage, Registration, FindRestaurant, Box, Hamburger, Menu, MainPage  } from './components';
 import FindRestauration from "./components/FindRestauration";
+import './App.scss';
 
+const history = createBrowserHistory();
 
 export default class App extends Component {
 
@@ -25,7 +27,7 @@ export default class App extends Component {
         const { burgerOpen } = this.state;
 
         return (
-            <Router>
+            <Router history={history}>
                 <div className="mainBox">
                     <Header burgerOpen={burgerOpen} onClick={this.burgerHandler}>
                         <Hamburger onClick={this.burgerHandler} />
@@ -35,11 +37,13 @@ export default class App extends Component {
                     <Switch>
                         <Route path="/zaloguj" component={LoginMenu}/>
                         <Route path="/zarejestrujsie" component={Registration}/>
-                        <Route path="/znajdzrestauracje" component={FindRestauration}/>
+                        <Route path="/znajdzrestauracje/:name" component={FindRestauration} />
                         {/*<Route path="/twojerezerwacje" exact component={LoginMenu}/>*/}
                         {/*<Route path="/kontakt" exact component={LoginMenu}/>*/}
-                        <Route path="/" exact component={Box} />
-                        <Route component={ErrorPage}/>
+                        <Route path="/" exact>
+                            <Box history={history} />
+                        </Route>
+                        <Route component={ErrorPage} />
                     </Switch>
                 </div>
             </Router>

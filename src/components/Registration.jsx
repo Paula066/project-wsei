@@ -2,44 +2,64 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 export default class Registration extends Component {
+
+    state = {
+        userName: '',
+        registerEmail: '',
+        registerPassword: '',
+        registerPassword2: '',
+        wasUserCreated: false
+    }
+
+    handleFormChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    register = () => {
+        const url = "http://localhost:5000/zarejestrujsie";
+
+        const {userName, registerEmail, registerPassword } = this.state;
+
+        axios({
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*",
+            },
+            data: {
+                username: userName,
+                email: registerEmail,
+                password: registerPassword
+            },
+            withCredentials: true,
+            url
+
+        }).then((res) => {
+            this.setState({
+                wasUserCreated: res.data
+            })
+        })
+    }
+
     render() {
-        let registerUsername = ""
-        let registerEmail = ""
-        let registerPassword = ""
-        let registerPassword2 = ""
-
-        const register = () => {
-            const proxyurl = "https://cors-anywhere.herokuapp.com/";
-            const url = "http://localhost:5000/zarejestrujsie";
-
-            axios({
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json;charset=UTF-8',
-                    "Access-Control-Allow-Origin": "*",
-                },
-                data: {
-                    username: registerUsername,
-                    email: registerEmail,
-                    password: registerPassword
-                },
-                withCredentials: true,
-                url: `http://localhost:5000/zarejestrujsie`
-            }).then((res) => console.log(res))
-        }
+        const { wasUserCreated } = this.state;
         return (
             <div className="mainLogin">
-                <form action="">
+                {!wasUserCreated && <form>
                     <label>Sign up</label>
                     <div className="mainLogin__input-box">
-                        <input placeholder="username" onChange={e => registerUsername = e.target.value} />
-                        <input placeholder="e-mail address" onChange={e => registerEmail = e.target.value} />
-                        <input placeholder="password" onChange={e => registerPassword = e.target.value} />
-                        <input placeholder="confirm password" onChange={e => registerPassword2 = e.target.value} />
-                        <button type="button" onClick={register}>Sign up</button>
+                        <input name="userName" placeholder="username" onChange={this.handleFormChange} />
+                        <input name="registerEmail" placeholder="e-mail address" onChange={this.handleFormChange} />
+                        <input name="registerPassword" placeholder="password" onChange={this.handleFormChange} />
+                        <input name="registerPassword2" placeholder="confirm password" onChange={this.handleFormChange} />
+                        <button type="button" onClick={this.register}>Sign up</button>
                     </div>
-                </form>
+                </form>}
+                {wasUserCreated}
             </div>
         )
     }

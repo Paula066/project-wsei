@@ -8,7 +8,7 @@ export default class LoginMenu extends Component {
 
         const login = () => {
 
-            axios({
+            fetch({
                 method: 'POST',
                 data: {
                     username: LoginUsername,
