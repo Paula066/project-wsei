@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class Registration extends Component {
 
@@ -19,30 +19,29 @@ export default class Registration extends Component {
     }
 
     register = () => {
+
         const url = "http://localhost:5000/zarejestrujsie";
 
-        const {userName, registerEmail, registerPassword } = this.state;
+        const { userName, registerEmail, registerPassword, registerPassword2 } = this.state;
+        if (registerPassword === registerPassword2) {
+            Axios({
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    "Access-Control-Allow-Origin": "*",
+                },
+                data: {
+                    username: userName,
+                    email: registerEmail,
+                    password: registerPassword
+                },
+                withCredentials: true,
+                url
 
-        axios({
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json;charset=UTF-8',
-                "Access-Control-Allow-Origin": "*",
-            },
-            data: {
-                username: userName,
-                email: registerEmail,
-                password: registerPassword
-            },
-            withCredentials: true,
-            url
-
-        }).then((res) => {
-            this.setState({
-                wasUserCreated: res.data
-            })
-        })
+            }).then((res) => console.log(res))
+        }
+        else console.log("rózne hasła")
     }
 
     render() {

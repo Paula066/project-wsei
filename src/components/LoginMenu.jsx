@@ -1,5 +1,5 @@
+import Axios from "axios";
 import React, { Component } from "react";
-const axios = require("axios")
 
 export default class LoginMenu extends Component {
     render() {
@@ -7,15 +7,16 @@ export default class LoginMenu extends Component {
         let LoginPassword = ""
 
         const login = () => {
+            const url = "http://localhost:5000/zaloguj";
 
-            fetch({
+            Axios({
                 method: 'POST',
                 data: {
                     username: LoginUsername,
                     password: LoginPassword
                 },
                 withCredentials: true,
-                url: "http://localhost:5000/zaloguj"
+                url
             }).then((res) => console.log(res))
         }
 
